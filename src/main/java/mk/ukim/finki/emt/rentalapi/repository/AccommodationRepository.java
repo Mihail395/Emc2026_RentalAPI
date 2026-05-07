@@ -2,6 +2,7 @@ package mk.ukim.finki.emt.rentalapi.repository;
 
 import mk.ukim.finki.emt.rentalapi.model.domain.Accommodation;
 import mk.ukim.finki.emt.rentalapi.model.enums.AccommodationCategory;
+import mk.ukim.finki.emt.rentalapi.model.enums.AccommodationCondition;
 import mk.ukim.finki.emt.rentalapi.model.projection.AccommodationExtendedProjection;
 import mk.ukim.finki.emt.rentalapi.model.projection.AccommodationShortProjection;
 import org.springframework.data.domain.Page;
@@ -29,6 +30,9 @@ public interface AccommodationRepository extends JpaRepository<Accommodation, Lo
     List<AccommodationShortProjection> findAllProjectedBy();
 
     List<AccommodationExtendedProjection> findAllExtendedProjectedBy();
+
+    @Query("SELECT a FROM Accommodation a WHERE :condition IS NULL OR a.condition = :condition")
+    List<Accommodation> findAllByCondition(@Param("condition") AccommodationCondition condition);
 
     @Query("""
         SELECT a FROM Accommodation a

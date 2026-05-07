@@ -203,4 +203,9 @@ public class AccommodationServiceImpl implements AccommodationService {
     public List<HostPopularityDto> findMostPopularHosts() {
         return activityLogRepository.findMostPopularHosts();
     }
+
+    @Override
+    public List<Accommodation> findAllByCondition(AccommodationCondition condition) {
+        return accommodationRepository.findAllByCondition(condition);
+    }
 }

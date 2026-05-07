@@ -4,6 +4,7 @@ import mk.ukim.finki.emt.rentalapi.model.domain.Accommodation;
 import mk.ukim.finki.emt.rentalapi.model.domain.ActivityLog;
 import mk.ukim.finki.emt.rentalapi.model.dto.*;
 import mk.ukim.finki.emt.rentalapi.model.enums.AccommodationCategory;
+import mk.ukim.finki.emt.rentalapi.model.enums.AccommodationCondition;
 import mk.ukim.finki.emt.rentalapi.model.projection.AccommodationExtendedProjection;
 import mk.ukim.finki.emt.rentalapi.model.projection.AccommodationShortProjection;
 import mk.ukim.finki.emt.rentalapi.model.views.AccommodationStats;
@@ -74,4 +75,7 @@ public interface AccommodationService {
 
     // Find the most popular hosts sorted in descending order (based on rents)
     List<HostPopularityDto> findMostPopularHosts();
+
+    // Filter accommodations based on condition
+    List<Accommodation> findAllByCondition(AccommodationCondition condition);
 }

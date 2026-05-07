@@ -8,6 +8,7 @@ import mk.ukim.finki.emt.rentalapi.model.domain.Accommodation;
 import mk.ukim.finki.emt.rentalapi.model.domain.ActivityLog;
 import mk.ukim.finki.emt.rentalapi.model.dto.*;
 import mk.ukim.finki.emt.rentalapi.model.enums.AccommodationCategory;
+import mk.ukim.finki.emt.rentalapi.model.enums.AccommodationCondition;
 import mk.ukim.finki.emt.rentalapi.model.projection.AccommodationExtendedProjection;
 import mk.ukim.finki.emt.rentalapi.model.projection.AccommodationShortProjection;
 import mk.ukim.finki.emt.rentalapi.model.views.AccommodationStats;
@@ -157,5 +158,12 @@ public class AccommodationController {
     @Operation(summary = "Get most popular hosts sorted by number of rentals descending")
     public ResponseEntity<List<HostPopularityDto>> findMostPopularHosts() {
         return ResponseEntity.ok(accommodationService.findMostPopularHosts());
+    }
+
+    @GetMapping("/filter-by-condition")
+    @Operation(summary = "Filter accommodations by condition")
+    public ResponseEntity<List<Accommodation>> findAllByCondition(
+            @RequestParam(required = false) AccommodationCondition condition) {
+        return ResponseEntity.ok(accommodationService.findAllByCondition(condition));
     }
 }
