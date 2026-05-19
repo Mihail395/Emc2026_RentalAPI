@@ -65,6 +65,12 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/accommodations/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/accommodations/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/accommodations/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/hosts/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/hosts/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/hosts/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/countries/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/countries/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/countries/**").hasRole("ADMIN")
 
                         // Any authenticated user — rent and free rooms
                         .requestMatchers(HttpMethod.PATCH, "/api/accommodations/**").authenticated()
