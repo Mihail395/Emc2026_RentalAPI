@@ -8,3 +8,6 @@ Logging the activity for renting and fully booked accommodations in an activity 
 
 **Lab3** - Added CORS configuration into the security configuration file
 so the frontend can access the API endpoints and fixed some security issues.
+
+**Lab4** - Add CRUD operations for Host and Country and update security so the access on these is 
+based on roles.
